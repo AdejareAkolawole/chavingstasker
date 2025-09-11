@@ -1,0 +1,13 @@
+{
+    "name": "joevic/chavingstasker",
+    "description": "A platform connecting verified professionals with task providers in Nigeria.",
+    "type": "project",
+    "license": "proprietary",
+    "autoload": {
+        "psr-4": {
+            "Joevic\\Chavingstasker\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {}
+}
