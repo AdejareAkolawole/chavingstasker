@@ -1,0 +1,227 @@
+/* --- IMPORT DASHBOARD STYLES --- */
+@import url('dashboard.css');
+
+/* --- PAGE-SPECIFIC STYLES FOR MESSAGES --- */
+
+.chat-layout {
+    display: grid;
+    grid-template-columns: 320px 1fr; /* Fixed width for conversations, flexible for chat */
+    height: calc(100vh - 120px); /* Fill available height */
+    background: var(--bg-sidebar);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+/* --- Conversations Panel (Left) --- */
+.conversations-panel {
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.conversations-panel .panel-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    flex-shrink: 0;
+}
+
+.conversations-list {
+    overflow-y: auto;
+    padding: 0.5rem;
+}
+
+.conversation-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.conversation-item:hover {
+    background-color: var(--bg-main);
+}
+.conversation-item.active {
+    background-color: rgba(109, 40, 217, 0.1);
+}
+
+.avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--brand-purple);
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.conv-details {
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.conv-name {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.conv-preview {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.unread-dot {
+    width: 10px;
+    height: 10px;
+    background-color: var(--brand-green);
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+.empty-state {
+    padding: 2rem;
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+/* --- Chat Panel (Right) --- */
+.chat-panel {
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    flex-shrink: 0;
+}
+
+.chat-header h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+}
+
+.chat-messages {
+    flex-grow: 1;
+    padding: 1.5rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.message {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.5rem;
+    max-width: 75%;
+}
+
+.message-bubble {
+    padding: 0.75rem 1.25rem;
+    border-radius: 18px;
+    line-height: 1.5;
+}
+
+.message-time {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    white-space: nowrap;
+}
+
+/* Sent Messages */
+.message.sent {
+    align-self: flex-end;
+    flex-direction: row-reverse;
+}
+.message.sent .message-bubble {
+    background-color: var(--brand-purple);
+    color: white;
+    border-bottom-right-radius: 4px;
+}
+
+/* Received Messages */
+.message.received {
+    align-self: flex-start;
+}
+.message.received .message-bubble {
+    background-color: var(--bg-main);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    border-bottom-left-radius: 4px;
+}
+
+.chat-input-area {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid var(--border-color);
+    flex-shrink: 0;
+}
+
+.message-form {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.message-form textarea {
+    flex-grow: 1;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    resize: none;
+    height: 44px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    background-color: var(--bg-main);
+}
+
+.message-form textarea:focus {
+    outline: none;
+    border-color: var(--brand-purple);
+    box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.2);
+}
+
+.send-btn {
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border-radius: 50%;
+}
+
+.no-chat-selected {
+    margin: auto;
+    text-align: center;
+    color: var(--text-secondary);
+}
+.no-chat-selected i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+.no-chat-selected h2 {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-primary);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .chat-layout {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+    .conversations-panel {
+        width: 100%;
+        max-height: 250px;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+    }
+}

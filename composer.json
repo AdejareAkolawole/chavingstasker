@@ -9,5 +9,7 @@
         }
     },
     "minimum-stability": "dev",
-    "require": {}
+    "require": {
+        "mpdf/mpdf": "^6.1"
+    }
 }

@@ -1,0 +1,79 @@
+/* --- IMPORT DASHBOARD STYLES --- */
+@import url('dashboard.css');
+
+/* --- PAGE-SPECIFIC STYLES FOR PROFILE --- */
+
+.profile-header-card {
+    background: var(--bg-sidebar); border: 1px solid var(--border-color); border-radius: var(--radius);
+    padding: 2rem; display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;
+}
+.profile-info { display: flex; align-items: center; gap: 1.5rem; }
+.profile-picture-wrapper { position: relative; }
+.profile-picture { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; border: 3px solid var(--bg-main); box-shadow: var(--shadow-md); }
+.edit-picture-btn {
+    position: absolute; bottom: 5px; right: 5px; background: var(--brand-purple); color: white; border: 2px solid var(--bg-sidebar);
+    border-radius: 50%; width: 32px; height: 32px; display: flex; justify-content: center; align-items: center; cursor: pointer; transition: var(--transition);
+}
+.edit-picture-btn:hover { transform: scale(1.1); }
+.profile-details h2 { font-family: 'Poppins', sans-serif; font-size: 1.8rem; font-weight: 600; display: flex; align-items: center; gap: 0.75rem; }
+
+/* The new admin badge style */
+.admin-badge {
+    background-color: transparent;
+    color: #10B981;
+    font-size: 1.2rem;
+    width: auto;
+    height: auto;
+    margin-left: 0.25rem; /* Add a little space between badges */
+}
+
+/* The existing verified badge style */
+.verified-badge { background-color: var(--brand-green); color: white; font-size: 0.8rem; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; justify-content: center; align-items: center; }
+
+.profile-role { font-size: 1rem; font-weight: 500; color: var(--text-secondary); }
+.profile-location { font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.5rem; }
+.profile-location i { margin-right: 0.5rem; }
+.profile-actions { display: flex; gap: 1rem; }
+.profile-actions .cta-btn.secondary { background: var(--bg-main); color: var(--text-secondary); border-color: var(--border-color); }
+.profile-actions .cta-btn.secondary:hover { color: var(--text-primary); border-color: var(--text-secondary); }
+.content-panel h3 { font-family: 'Poppins', sans-serif; font-size: 1.2rem; font-weight: 600; margin-bottom: 1rem; }
+.content-panel p { color: var(--text-secondary); line-height: 1.6; }
+.section-subheader { padding-top: 1.5rem; margin-top: 1.5rem; border-top: 1px solid var(--border-color); }
+.skills-tags { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.skill-tag { background-color: var(--bg-main); color: var(--text-secondary); padding: 0.35rem 1rem; border-radius: 99px; font-size: 0.9rem; font-weight: 500; border: 1px solid var(--border-color); }
+
+/* --- TABS --- */
+.tabs-container { display: flex; border-bottom: 1px solid var(--border-color); margin-bottom: 1.5rem; }
+.tab-link { background: none; border: none; padding: 0.8rem 1.2rem; font-size: 0.95rem; font-weight: 600; color: var(--text-secondary); cursor: pointer; position: relative; transition: var(--transition); }
+.tab-link::after { content: ''; position: absolute; bottom: -1px; left: 0; width: 100%; height: 2px; background-color: var(--brand-purple); transform: scaleX(0); transition: var(--transition); }
+.tab-link:hover { color: var(--text-primary); }
+.tab-link.active { color: var(--brand-purple); }
+.tab-link.active::after { transform: scaleX(1); }
+.tab-content { display: none; }
+.tab-content.active { display: block; animation: fadeIn 0.5s ease; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* --- MODAL --- */
+.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; opacity: 0; visibility: hidden; transition: var(--transition); }
+.modal-overlay.active { opacity: 1; visibility: visible; }
+.modal-card {
+    position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.95); background: var(--bg-sidebar); border-radius: var(--radius);
+    padding: 2rem; box-shadow: var(--shadow-md); width: 100%; max-width: 600px; z-index: 1001; opacity: 0; visibility: hidden; transition: var(--transition);
+}
+.modal-card.active { opacity: 1; visibility: visible; transform: translate(-50%, -50%) scale(1); }
+.modal-card h3 { text-align: center; }
+.modal-card .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.modal-card .input-group { margin-bottom: 1rem; }
+.modal-card .input-group label { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem; }
+.modal-card .input-group input, .modal-card .input-group textarea {
+    width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border-color); border-radius: 8px; font-size: 1rem; background-color: var(--bg-main);
+}
+.modal-card .input-group input:focus, .modal-card .input-group textarea:focus { outline: none; border-color: var(--brand-purple); box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.2); }
+.modal-card .form-actions { margin-top: 1.5rem; display: flex; justify-content: flex-end; gap: 1rem; }
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .profile-header-card, .profile-info { flex-direction: column; align-items: flex-start; }
+    .profile-details { text-align: left; }
+    .modal-card .form-row { grid-template-columns: 1fr; }
+}

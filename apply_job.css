@@ -1,0 +1,159 @@
+/* --- IMPORT DASHBOARD STYLES --- */
+@import url('dashboard.css');
+
+/* --- PAGE-SPECIFIC STYLES FOR APPLY_JOB --- */
+
+/* --- TABS --- */
+.tabs-container {
+    display: flex;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 2rem;
+}
+
+.tab-link {
+    background: none;
+    border: none;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    cursor: pointer;
+    position: relative;
+    transition: var(--transition);
+}
+
+.tab-link::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--brand-purple);
+    transform: scaleX(0);
+    transition: var(--transition);
+}
+
+.tab-link:hover {
+    color: var(--text-primary);
+}
+
+.tab-link.active {
+    color: var(--brand-purple);
+}
+
+.tab-link.active::after {
+    transform: scaleX(1);
+}
+
+.tab-content {
+    display: none;
+}
+.tab-content.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- JOB LIST VIEW --- */
+.job-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background-color: var(--border-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+.job-list-item {
+    background-color: var(--bg-sidebar);
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    transition: var(--transition);
+}
+
+.job-list-item:hover {
+    background-color: var(--bg-main);
+    box-shadow: inset 3px 0 0 var(--brand-purple);
+}
+
+.item-main-info h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.item-description {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.item-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.tag {
+    background-color: var(--bg-main);
+    color: var(--text-secondary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 99px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border: 1px solid var(--border-color);
+}
+
+.tag i {
+    margin-right: 0.25rem;
+}
+
+.item-action {
+    text-align: right;
+    flex-shrink: 0;
+}
+
+.item-action .cta-btn.small {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+}
+
+.view-details-link {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-decoration: none;
+}
+.view-details-link:hover {
+    color: var(--brand-purple);
+}
+
+/* --- RESPONSIVE ADJUSTMENTS --- */
+@media (max-width: 768px) {
+    .job-list-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .item-action {
+        text-align: left;
+        width: 100%;
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+    }
+}

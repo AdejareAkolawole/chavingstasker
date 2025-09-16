@@ -1,0 +1,96 @@
+/* --- IMPORT DASHBOARD STYLES --- */
+@import url('dashboard.css');
+
+/* --- SHARED STYLES (from promote_gig) --- */
+.feature-explanation{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;margin-top:2rem;}.feature-box{background:var(--bg-sidebar);padding:1.5rem;border-radius:var(--radius);border:1px solid var(--border-color);text-align:center}.feature-box i{font-size:2rem;color:var(--brand-purple);margin-bottom:1rem}.feature-box h3{font-family:'Poppins',sans-serif;font-size:1.1rem;margin-bottom:.5rem}.feature-box p{color:var(--text-secondary);font-size:.9rem;line-height:1.5}.modal-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.6);z-index:1000;opacity:0;visibility:hidden;transition:var(--transition);backdrop-filter:blur(5px)}.modal-overlay.active{opacity:1;visibility:visible}.modal-card{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(.95);background:var(--bg-sidebar);border-radius:var(--radius);padding:2rem;box-shadow:var(--shadow-md);width:100%;max-width:500px;z-index:1001;opacity:0;visibility:hidden;transition:var(--transition);text-align:center}.modal-card.active{opacity:1;visibility:visible;transform:translate(-50%,-50%) scale(1)}.payment-details{background:var(--bg-main);border:1px solid var(--border-color);border-radius:8px;margin-bottom:1.5rem}.detail-item{display:flex;justify-content:space-between;padding:1rem;border-bottom:1px solid var(--border-color)}.detail-item:last-child{border-bottom:none}.detail-item strong{font-size:1.1rem;font-weight:600}.whatsapp-btn{width:100%;justify-content:center;background:#25D366;color:#fff;margin-bottom:.75rem}.whatsapp-btn:hover{background:#128C7E}.modal-card .cta-btn.secondary{width:100%;background:transparent;color:var(--text-secondary)}
+
+/* --- PAGE-SPECIFIC STYLES --- */
+.status-panel {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+}
+.status-panel.inactive {
+    background: var(--bg-sidebar);
+}
+.status-panel.active {
+    background: linear-gradient(90deg, rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0));
+    border-color: rgba(16, 185, 129, 0.2);
+}
+.status-panel i {
+    font-size: 2.5rem;
+}
+.status-panel.inactive i { color: var(--brand-purple); }
+.status-panel.active i { color: var(--brand-green); }
+
+.status-text h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.3rem;
+}
+.status-text p {
+    color: var(--text-secondary);
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.pricing-card {
+    background: var(--bg-sidebar);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+}
+
+.pricing-card.recommended {
+    border-color: var(--brand-purple);
+    border-width: 2px;
+}
+.pricing-card .badge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--brand-purple);
+    color: white;
+    padding: 0.3rem 1rem;
+    border-radius: 99px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.pricing-card h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+}
+
+.pricing-card .price {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--brand-purple);
+    margin: 1rem 0;
+}
+.pricing-card .price span {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+.pricing-card .desc {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+    .pricing-grid {
+        grid-template-columns: 1fr;
+    }
+}

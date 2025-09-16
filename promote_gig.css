@@ -1,0 +1,201 @@
+/* --- IMPORT DASHBOARD STYLES --- */
+@import url('dashboard.css');
+
+/* --- SHARED STYLES --- */
+.feature-explanation {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.feature-box {
+    background: var(--bg-sidebar);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.feature-box i {
+    font-size: 2rem;
+    color: var(--brand-purple);
+    margin-bottom: 1rem;
+}
+
+.feature-box h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.feature-box p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.alert {
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    font-weight: 500;
+}
+.alert.success {
+    background-color: rgba(16, 185, 129, 0.1);
+    color: #047857;
+    border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.empty-state a {
+    color: var(--brand-purple);
+    font-weight: 500;
+}
+
+/* --- GIG LIST CARD DESIGN --- */
+.gig-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.gig-list-item {
+    background-color: var(--bg-sidebar);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+}
+
+.gig-list-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--brand-purple);
+}
+
+.gig-list-item.is-promoted {
+    border-left: 4px solid var(--brand-purple);
+    background-color: var(--bg-main);
+}
+
+.item-main-info h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.item-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.tag {
+    background-color: var(--bg-main);
+    color: var(--text-secondary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 99px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border: 1px solid var(--border-color);
+}
+
+.tag.promoted {
+    background-color: rgba(109, 40, 217, 0.1);
+    color: var(--brand-purple);
+    border-color: transparent;
+}
+
+.tag i {
+    margin-right: 0.5rem;
+}
+
+.item-action {
+    flex-shrink: 0;
+}
+
+.promote-form {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.promote-form select, .duration-select {
+    padding: 0.6rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-main);
+    transition: var(--transition);
+}
+
+.promote-form select:focus, .duration-select:focus {
+    outline: none;
+    border-color: var(--brand-purple);
+    box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.2);
+}
+
+.promote-form .cta-btn.small, .item-action .cta-btn.small {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    background: var(--brand-green);
+}
+.promote-form .cta-btn.small:hover {
+    background: #059669;
+}
+
+
+/* --- CLIENT-SPECIFIC STYLES --- */
+.scout-form { margin-top: 1.5rem; }
+.scout-form .input-group { margin-bottom: 1.5rem; }
+.scout-form label { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem; display: block; }
+.scout-form textarea { width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border-color); border-radius: 8px; font-size: 1rem; font-family: 'Inter', sans-serif; background-color: var(--bg-main); resize: vertical; }
+.scout-form textarea:focus { outline: none; border-color: var(--brand-purple); box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.2); }
+.cta-btn.large { padding: 0.8rem 2rem; font-size: 1.1rem; width: 100%; }
+
+/* --- PAYMENT MODAL STYLES --- */
+.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1000; opacity: 0; visibility: hidden; transition: var(--transition); backdrop-filter: blur(5px); }
+.modal-overlay.active { opacity: 1; visibility: visible; }
+.modal-card { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.95); background: var(--bg-sidebar); border-radius: var(--radius); padding: 2rem; box-shadow: var(--shadow-md); width: 100%; max-width: 500px; z-index: 1001; opacity: 0; visibility: hidden; transition: var(--transition); text-align: center; }
+.modal-card.active { opacity: 1; visibility: visible; transform: translate(-50%, -50%) scale(1); }
+.modal-card h3 { font-family: 'Poppins', sans-serif; font-size: 1.5rem; margin-bottom: 0.5rem; }
+.modal-subtitle { color: var(--text-secondary); margin-bottom: 2rem; }
+.payment-details { background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 8px; margin-bottom: 1.5rem; }
+.detail-item { display: flex; justify-content: space-between; padding: 1rem; border-bottom: 1px solid var(--border-color); }
+.detail-item:last-child { border-bottom: none; }
+.detail-item span { color: var(--text-secondary); }
+.detail-item strong { font-size: 1.1rem; font-weight: 600; }
+.modal-instruction { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1.5rem; }
+.whatsapp-btn { width: 100%; justify-content: center; background: #25D366; color: white; margin-bottom: 0.75rem; }
+.whatsapp-btn:hover { background: #128C7E; }
+.whatsapp-btn i { margin-right: 0.75rem; font-size: 1.2rem; }
+.modal-card .cta-btn.secondary { width: 100%; background: transparent; color: var(--text-secondary); }
+
+/* --- RESPONSIVE --- */
+@media (max-width: 992px) {
+    .feature-explanation {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .gig-list-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    .item-action {
+        width: 100%;
+        margin-top: 1rem;
+        border-top: 1px solid var(--border-color);
+        padding-top: 1rem;
+    }
+}
